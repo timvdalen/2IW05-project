@@ -16,31 +16,35 @@
 \subsection{Message Sequence Diagrams}
 	\subsubsection{One}
 		This MSC describes...
-		
-		\begin{msc}
-			msc
-			{
+		\begin{figure}
+			\centering
+			\begin{msc}
+				msc
+				{
 
-				a [label="A"],
-				b [label="B"],
-				c [label="C"];
+					a [label="A"],
+					b [label="B"],
+					c [label="C"];
 
-				a box a [label=""],
-				b box b [label=""],
-				c box c [label=""];
+					a box a [label=""],
+					b box b [label=""],
+					c box c [label=""];
 
-				|||;
-				
-				a->b [label="ab"],
-				b->c [label="bc"];
-				
-				a->c [label="ac"];
+					|||;
+					
+					a->b [label="ab"],
+					b->c [label="bc"];
+					
+					a->c [label="ac"];
 
-				|||;
+					|||;
 
-				a box a [label="", textbgcolor="black"],
-				b box b [label="", textbgcolor="black"],
-				c box c [label="", textbgcolor="black"];
+					a box a [label="", textbgcolor="black"],
+					b box b [label="", textbgcolor="black"],
+					c box c [label="", textbgcolor="black"];
 
-			}
-		\end{msc}
+				}
+			\end{msc}
+			\caption{One}
+			\label{msc:one}
+		\end{figure}
