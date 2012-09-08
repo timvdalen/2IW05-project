@@ -1,0 +1,45 @@
+\subsection{Class diagram}
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}
+			\begin{class}[text]{Class}{0,0}
+				\attribute{- name : type}
+				
+				\operation{getName() : type}
+				\operation{setName(name : type)}
+			\end{class}
+		\end{tikzpicture}
+		\caption{High-level entities in the system}
+		\label{fig:analysis-model}
+	\end{figure}
+
+\subsection{Message Sequence Diagrams}
+	\subsubsection{One}
+		This MSC describes...
+		\begin{msc}
+			msc
+			{
+
+				a [label="A"],
+				b [label="B"],
+				c [label="C"];
+
+				a box a [label=""],
+				b box b [label=""],
+				c box c [label=""];
+
+				|||;
+				
+				a->b [label="ab"],
+				b->c [label="bc"];
+				
+				a->c [label="ac"];
+
+				|||;
+
+				a box a [label="", textbgcolor="black"],
+				b box b [label="", textbgcolor="black"],
+				c box c [label="", textbgcolor="black"];
+
+			}
+		\end{msc}
