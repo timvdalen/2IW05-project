@@ -1,5 +1,53 @@
 This section describes the use cases of the system.
 
+\subsubsection{Create meeting schedule}
+
+\begin{description}
+	\item[Pre-condition:] User is registered and logged in
+	\item[Trigger:] User clicks 'Schedule new event' link
+	\item[Guarantee:] A new event is created
+	\item[Scenarios]\textbf{:}\\
+				\begin{description}
+					\item[Main scenarios]\textbf{:}\\
+								\begin{enumerate}
+									\item Enter name, event name, event description
+									\item The user enters some date/time options
+									\item Enter email addresses for attendees, enter a custom message
+									\item The user specifies whether or not the poll should be 'hidden'
+									\item The user submits the event to the system by openeing the poll
+								\end{enumerate}
+					\item[Alternatives]\textbf{:}\\
+								\begin{itemize}
+									\item 2.1 One or more date/time pairs are not valid, the system shows an error message and the user is back at the start of step 2, with all fields already filled in, except for the rrorous ones.
+								\end{itemize}
+				\end{description}
+\end{description}
+
+
+\subsubsection{Accept a meeting}
+
+\begin{description}
+	\item[Pre-condition:] User has received an invitation email
+	\item[Trigger:] User clicks the link in the invitation email
+	\item[Guarantee:] The user voted on possible dates
+	\item[Scenarios]\textbf{:}\\
+				\begin{description}
+					\item[Main scenarios]\textbf{:}\\
+								\begin{enumerate}
+									\item The user confirms that he or she would like to attend the event
+									\item The user votes on date/time options
+									\item The system sends a notification email to the organizer
+									\item The user is able to see the votes of other invitees
+								\end{enumerate}
+					\item[Alternatives]\textbf{:}\\
+								\begin{itemize}
+									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown
+								\end{itemize}
+				\end{description}
+\end{description}
+
+
+
 \subsubsection{Use case name}
 
 \begin{description}
