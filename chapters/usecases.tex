@@ -10,10 +10,10 @@ This section describes the use cases of the system.
 				\begin{description}
 					\item[Main scenarios]\textbf{:}\\
 								\begin{enumerate}
-									\item Enter name, event name, event description
+									\item The user enters his/her name, the event name and an event description
 									\item The user enters some date/time options
-									\item Enter email addresses for attendees, enter a custom message
-									\item The user specifies whether or not the poll should be 'hidden'
+									\item The user enters email addresses for attendees and a custom message
+									\item The user specifies whether or not the poll should be 'hidden' and voting limitations
 									\item The user submits the event to the system by openeing the poll
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
@@ -24,10 +24,10 @@ This section describes the use cases of the system.
 \end{description}
 
 
-\subsubsection{Accept a meeting}
+\subsubsection{Respond to a meeting invitation}
 
 \begin{description}
-	\item[Pre-condition:] User has received an invitation email
+	\item[Pre-condition:] User has received an invitation email and the meeting poll is open
 	\item[Trigger:] User clicks the link in the invitation email
 	\item[Guarantee:] The user voted on possible dates
 	\item[Scenarios]\textbf{:}\\
@@ -41,32 +41,74 @@ This section describes the use cases of the system.
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
+									%TODO: Not sure if an alternative is really the way to go. I used to have a seperate use case for accepting and declining, but that seemed a bit superfluous.
+									\item 1.1 If the user doesn't want to participate in the event, he or she declines the invitation.	
+									\item 2.1 If the organizer made any voting restrictions, such as enabling users to only vote once or limiting the number of invitees that can vote on a certain date/time, these are enforced.
 									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown
 								\end{itemize}
 				\end{description}
 \end{description}
 
-
-
-\subsubsection{Use case name}
+\subsubsection{Edit a meeting response}
 
 \begin{description}
-	\item[Pre-condition:] pre
-	\item[Trigger:] trig
-	\item[Guarantee:]
+	\item[Pre-condition:] User has responded to a meeting invitation and the meeting poll is open
+	\item[Trigger:] User clicks the link in the invitation email
+	\item[Guarantee:] The users answer/votes might have been changed.
 	\item[Scenarios]\textbf{:}\\
 				\begin{description}
 					\item[Main scenarios]\textbf{:}\\
 								\begin{enumerate}
-									\item one
-									\item two
+									\item The user confirms that he/she would still like to attend the event
+									\item The user votes on date/time options
+									\item The system sends a notification email to the organizer
+									\item The user is able to see the votes of other invitees
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
-									\item 1.1 one one
-									\item 1.2 one two
+									\item 1.1 If the user doesn't want to participate anymore, he or she can decide to decline the invitation.
+									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown
 								\end{itemize}
 				\end{description}
 \end{description}
 
+\subsubsection{Administrate an event}
+
+\begin{description}
+	\item[Pre-condition:] The user is the organizer for this event
+	\item[Trigger:] User clicks the link to administrate the event
+	\item[Guarantee:] Settings for the event might have changed
+	\item[Scenarios]\textbf{:}\\
+				\begin{description}
+					\item[Main scenarios]\textbf{:}\\
+								\begin{enumerate}
+									\item The user is presented with an overview of the event.
+									\item The user chooses to delete the event, edit the general settings, change the date/time options or view event logs.
+								\end{enumerate}
+				\end{description}
+\end{description}
+
+\subsubsection{Close an event}
+
+\begin{description}
+	\item[Pre-condition:] The user is the organizer for this event
+	\item[Trigger:] User clicks the link to administrate the event and then clicks the delete button
+	\item[Guarantee:] The event is closed
+	\item[Scenarios]\textbf{:}\\
+				\begin{description}
+					\item[Main scenarios]\textbf{:}\\
+								\begin{enumerate}
+									\item The user is presented with a modal dialog asking them if they are sure. The user clicks 'yes'.
+									\item The user selects the final date/time based on the poll results.
+									\item Optionally, the user enters a closing message for the event
+									\item An email containing the optional message and the final date/time is sent to each invitee that confirmed.
+									\item The event is closed.
+								\end{enumerate}
+					\item[Alternatives]\textbf{:}\\
+								\begin{itemize}
+									\item 1.1 If the user clicks 'no', the closing is cancelled.
+								\end{itemize}
+
+				\end{description}
+\end{description}
 
