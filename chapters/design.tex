@@ -18,32 +18,11 @@
 		This MSC describes...
 		\begin{figure}[H]
 			\centering
-			\begin{msc}
-				msc
-				{
-
-					a [label="A"],
-					b [label="B"],
-					c [label="C"];
-
-					a box a [label=""],
-					b box b [label=""],
-					c box c [label=""];
-
-					|||;
-					
-					a->b [label="ab"],
-					b->c [label="bc"];
-					
-					a->c [label="ac"];
-
-					|||;
-
-					a box a [label="", textbgcolor="black"],
-					b box b [label="", textbgcolor="black"],
-					c box c [label="", textbgcolor="black"];
-
-				}
+			\begin{msc}{One}
+				\declinst{comp}{Component 1}{}
+				\declinst{compt}{Component 2}{}
+			
+				\mess{Message}{comp}{compt}
 			\end{msc}
 			\caption{One}
 			\label{msc:one}
