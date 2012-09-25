@@ -3,19 +3,31 @@
 		\centering
 		\begin{tikzpicture}
 			%Ignore the {x,y} values while working on this, we'll change that later
-			\begin{class}{User}{0,3}
+			\begin{class}{User}{0,5}
+			\attribute{- id : integer}
+			\attribute{- name : String}
+			\attribute{- password : String}
 			\end{class}
 		
-			\begin{class}{Vote}{4,6}
+			\begin{class}{Vote}{4,7}
+			\attribute{- dateTimeSlot : DateTimeSlot }
+			\attribute{- usersAgreed: User[*]}
 			\end{class}
 
-			\begin{class}{DateTimeSlot}{4,9}
+			\begin{class}{- DateTimeSlot}{4,10}
+			\attribute{- startDate : Date}
+			\attribute{- endDate : Date}
 			\end{class}
 
-			\begin{class}{Poll}{8,3}
+			\begin{class}{Poll}{8,5}
+			\attribute{- votes : Vote[*]}
 			\end{class}
 
 			\begin{class}{Event}{8,0}
+			\attribute{- name : String}
+			\attribute{- description: String}
+			\attribute{- participants: User[*]}
+			\attribute{- organizer : User}
 			\end{class}
 
 			\begin{class}{Response}{0,0}
