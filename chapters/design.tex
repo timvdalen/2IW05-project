@@ -2,27 +2,35 @@
 	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}
+			%Ignore the {x,y} values while working on this, we'll change that later
 			\begin{class}{User}{0,3}
 			\end{class}
 		
-			\begin{class}{Vote}{0,6}
+			\begin{class}{Vote}{4,6}
 			\end{class}
 
-			\begin{class}{DateTimeSlot}{8,6}
+			\begin{class}{DateTimeSlot}{4,9}
+			\end{class}
+
+			\begin{class}{Poll}{8,3}
+			\end{class}
+
+			\begin{class}{Event}{8,0}
+			\end{class}
+
+			\begin{class}{Response}{0,0}
 			\end{class}
 
 
-			\begin{class}{Event}{8,3}
-			\end{class}
-
-			\begin{class}{Response}{4,0}
-			\end{class}
-
-			\association{Response}{user}{1}{User}{0..*}{responses}
-			\association{Response}{event}{1}{Event}{0..*}{reponses}
-			\association{DateTimeSlot}{timeslot}{1}{Vote}{vote}{1}
-			\association{Vote}{user}{1}{User}{1}{event}
-			\association{User}{organizedEvents}{0..*}{Event}{1}{organizer}
+			%Syntax: \aggregation{ClassA}{varOfClassA}{MultofA}{ClassB}{MultofB}{varOfClassB}
+			%I'm pretty sure not all are a two-way association
+			\association{Response}{responses}{0..*}{User}{1}{user}
+			\association{Response}{responses}{0..*}{Event}{1}{event}
+			\association{DateTimeSlot}{timeslot}{1}{Vote}{1}{vote}
+			\association{Vote}{castVotes}{0..*}{User}{1}{user}
+			\association{Vote}{votes}{0..*}{Poll}{1}{poll}
+			\association{User}{organizer}{1}{Event}{organizedEvents}{0..*}
+			\composition{Event}{poll}{1}{Poll}
 		\end{tikzpicture}
 		\caption{High-level entities in the system}
 		\label{fig:class-diagram}
