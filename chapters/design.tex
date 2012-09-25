@@ -2,28 +2,43 @@
 	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}
-			\begin{class}[text]{Class}{0,0}
-				\attribute{- name : type}
-				
-				\operation{getName() : type}
-				\operation{setName(name : type)}
+			\begin{class}{User}{0,3}
 			\end{class}
+		
+			\begin{class}{Vote}{0,6}
+			\end{class}
+
+			\begin{class}{DateTimeSlot}{8,6}
+			\end{class}
+
+
+			\begin{class}{Event}{8,3}
+			\end{class}
+
+			\begin{class}{Response}{4,0}
+			\end{class}
+
+			\association{Response}{user}{1}{User}{0..*}{responses}
+			\association{Response}{event}{1}{Event}{0..*}{reponses}
+			\association{DateTimeSlot}{timeslot}{1}{Vote}{vote}{1}
+			\association{Vote}{user}{1}{User}{1}{event}
+			\association{User}{organizedEvents}{0..*}{Event}{1}{organizer}
 		\end{tikzpicture}
 		\caption{High-level entities in the system}
-		\label{fig:analysis-model}
+		\label{fig:class-diagram}
 	\end{figure}
 
 \subsection{Message Sequence Diagrams}
 	\subsubsection{One}
 		This MSC describes...
-		\begin{figure}[H]
-			\centering
-			\begin{msc}{One}
-				\declinst{comp}{Component 1}{}
-				\declinst{compt}{Component 2}{}
-			
-				\mess{Message}{comp}{compt}
-			\end{msc}
-			\caption{One}
-			\label{msc:one}
-		\end{figure}
+%%\begin{figure}[H]
+%%%\centering
+%%%\begin{msc}{One}
+%%%%\declinst{comp}{Component 1}{}
+%%%%\declinst{compt}{Component 2}{}
+%%%
+%%%%\mess{Message}{comp}{compt}
+%%%\end{msc}
+%%%\caption{One}
+%%%\label{msc:one}
+%%\end{figure}

@@ -6,8 +6,27 @@ This section aims to give a first analysis of the system.
 	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}
-			\begin{class}{ClassName}{0,0}
+			\begin{class}{User}{0,3}
 			\end{class}
+		
+			\begin{class}{Vote}{0,6}
+			\end{class}
+
+			\begin{class}{DateTimeSlot}{8,6}
+			\end{class}
+
+
+			\begin{class}{Event}{8,3}
+			\end{class}
+
+			\begin{class}{Response}{4,0}
+			\end{class}
+
+			\association{Response}{}{}{User}{}{}
+			\association{Response}{}{}{Event}{}{}
+			\association{DateTimeSlot}{}{}{Vote}{}{}
+			\association{Vote}{}{}{User}{}{}
+			\association{User}{}{}{Event}{}{}
 		\end{tikzpicture}
 		\caption{High-level entities in the system}
 		\label{fig:analysis-model}
@@ -15,14 +34,14 @@ This section aims to give a first analysis of the system.
 	
 \subsection{System level sequence diagram}
 	%Note: These should be for each use case, with System one entity and entities for the actors
-	\begin{figure}[H]
-		\centering
-		\begin{msc}{Use case 1}
-			\declinst{usr}{User}{}
-			\declinst{sys}{System}{}
-			
-			\mess{Message}{usr}{sys}
-		\end{msc}
-		\caption{One}
-		\label{smsc:one}
-	\end{figure}
+%\begin{figure}[H]
+%%\centering
+%%\begin{msc}{Use case 1}
+%%%\declinst{usr}{User}{}
+%%%\declinst{sys}{System}{}
+%%%
+%%%\mess{Message}{usr}{sys}
+%%\end{msc}
+%%\caption{One}
+%%\label{smsc:one}
+%\end{figure}
