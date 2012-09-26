@@ -2,6 +2,22 @@ This section aims to give a first analysis of the system.
 
 \subsection{High-level entities}
 	Figure~\ref{fig:analysis-model} identifies the high-level entities in the system.
+
+	\begin{description}
+		\item[User] \hfill \\
+			This class represents all users in the system, regardless of their role in events (organizer/invitee).
+		\item[Event] \hfill \\
+			Represents an event in the system.
+		\item[Response] \hfill \\
+			A response from a User about participation in an Event in the system. This is either yes or no and does not specify any date or time.
+		\item[DateTimeSlot] \hfill \\
+			Represents a date/time.
+		\item[Poll] \hfill \\
+			A poll that Users can cast Votes on. This is always associated with an event and can not exist on its own. A poll has several DateTimeSlots as options that Users can vote on.
+		\item[Vote] \hfill \\
+			This class represents a vote on a Poll. A DateTimeSlot is associated with this Vote, representing the date/time that the User voted on.
+			
+	\end{description}
 	
 	\begin{figure}[H]
 		\centering
