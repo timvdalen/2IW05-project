@@ -88,3 +88,66 @@ This section aims to give a first analysis of the system.
 		\caption{Create meeting schedule}
 		\label{smsc:createmeeting}
 	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\begin{msc}{Respond to meeting invitation}
+			\declinst{org}{Organizer}{}
+			\declinst{inv}{Invitee}{}
+			\declinst{sys}{System}{}
+			\declinst{email}{Email service}{}
+
+			\mess{Confirm attendance}{inv}{sys}
+			\nextlevel
+
+			\mess{Present options}{sys}{inv}
+			\nextlevel
+
+			\mess{Vote}{inv}{sys}
+			\nextlevel
+
+			\mess{Notification}{sys}{email}
+			\nextlevel
+
+			\mess{Notification}{email}{org}
+			\nextlevel
+
+			\mess{Show vote statistics}{sys}{inv}
+			\nextlevel
+		\end{msc}
+		\caption{Respond to meeting invitation}
+		\label{smsc:respondmeeting}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\begin{msc}{Edit meeting response}
+			\declinst{org}{Organizer}{}
+			\declinst{inv}{Invitee}{}
+			\declinst{sys}{System}{}
+			\declinst{email}{Email service}{}
+		
+			\mess{Reconfirm attendance}{inv}{sys}
+			\nextlevel
+
+			\mess{Present options with previous votes}{sys}{inv}
+			\nextlevel
+
+			\mess{Vote}{inv}{sys}
+			\nextlevel
+
+			\mess{Notification}{sys}{email}
+			\nextlevel
+
+			\mess{Notification}{email}{org}
+			\nextlevel
+
+			\mess{Show vote statistics}{sys}{inv}
+			\nextlevel
+
+		\end{msc}
+		\caption{Edit meeting response}
+		\label{smsc:editmeetingresp}
+	\end{figure}
+
+
