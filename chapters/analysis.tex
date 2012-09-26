@@ -54,8 +54,10 @@ This section aims to give a first analysis of the system.
 
 			\mess{Invite people}{org}{sys}
 			\nextlevel
+			\nextlevel
 
 			\mess{Show event}{sys}{org}
+			\nextlevel
 			\nextlevel
 
 			\mess{Set poll status and limitations}{org}{sys}
@@ -66,20 +68,21 @@ This section aims to give a first analysis of the system.
 
 			\regionstart{coregion}{sys}			
 			\nextlevel
+			\nextlevel
 
 			\mess{Send confirmation email}{sys}{email}
 			\nextlevel
 			
 			\mess{Send confirmation email}{email}{org}
 			\nextlevel
-
+			\nextlevel
 
 			\mess{Send invitation email}{sys}{email}
 			\nextlevel
 			
 			\mess{Send invition email}{email}{inv}
 			\nextlevel
-
+			\nextlevel
 
 			\regionend{sys}
 			\nextlevel
@@ -102,14 +105,17 @@ This section aims to give a first analysis of the system.
 
 			\mess{Present options}{sys}{inv}
 			\nextlevel
+			\nextlevel
 
 			\mess{Vote}{inv}{sys}
+			\nextlevel
 			\nextlevel
 
 			\mess{Notification}{sys}{email}
 			\nextlevel
 
 			\mess{Notification}{email}{org}
+			\nextlevel
 			\nextlevel
 
 			\mess{Show vote statistics}{sys}{inv}
@@ -132,14 +138,17 @@ This section aims to give a first analysis of the system.
 
 			\mess{Present options with previous votes}{sys}{inv}
 			\nextlevel
+			\nextlevel
 
 			\mess{Vote}{inv}{sys}
+			\nextlevel
 			\nextlevel
 
 			\mess{Notification}{sys}{email}
 			\nextlevel
 
 			\mess{Notification}{email}{org}
+			\nextlevel
 			\nextlevel
 
 			\mess{Show vote statistics}{sys}{inv}
@@ -151,3 +160,26 @@ This section aims to give a first analysis of the system.
 	\end{figure}
 
 
+	\begin{figure}[H]
+		\centering
+		\begin{msc}{Administrate event}
+			\declinst{org}{Organizer}{}
+			\declinst{sys}{System}{}
+			
+			\mess{Event overview}{sys}{org}
+			\nextlevel
+			\nextlevel
+
+			\mess{Choose setting to edit}{org}{sys}
+			\nextlevel
+
+			\mess*{}{sys}{org}
+			\nextlevel
+			\nextlevel
+
+			\mess{Edit setting}{org}{sys}
+			\nextlevel
+		\end{msc}
+		\caption{Administrate event}
+		\label{smsc:adminevent}
+	\end{figure}
