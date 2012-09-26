@@ -3,34 +3,48 @@
 		\centering
 		\begin{tikzpicture}
 			%Ignore the {x,y} values while working on this, we'll change that later
-			\begin{class}{User}{0,5}
+			\begin{class}{User}{0,7}
 			\attribute{- id : integer}
 			\attribute{- name : String}
 			\attribute{- password : String}
+			\attribute{- emailAdress: String}
 			\end{class}
 		
-			\begin{class}{Vote}{4,7}
+			\begin{class}{Vote}{4,12}
 			\attribute{- dateTimeSlot : DateTimeSlot }
-			\attribute{- usersAgreed: User[*]}
+			\operation{+ userAgreed(user: User)}
 			\end{class}
 
-			\begin{class}{- DateTimeSlot}{4,10}
+			\begin{class}{DateTimeSlot}{4,16}
 			\attribute{- startDate : Date}
 			\attribute{- endDate : Date}
 			\end{class}
 
-			\begin{class}{Poll}{8,5}
-			\attribute{- votes : Vote[*]}
+			\begin{class}{Poll}{9,7}
+			\attribute{- hidden : Bool}
+			\attribute{- log: String}
+			\attribute{- limit: Integer}
+			\attribute{- closed: Bool}
+			\operation{+ removeVot(vote : Vote}
+			\operation{+ addVote(vote : Vote)}
+			\operation{+ changeVote(vote : Vote, changedVote: Vote)}
+			\operation{+ sendNotificationEmail()}
 			\end{class}
 
-			\begin{class}{Event}{8,0}
+			\begin{class}{Event}{9,0}
+			\attribute{- id : integer}
 			\attribute{- name : String}
 			\attribute{- description: String}
 			\attribute{- participants: User[*]}
-			\attribute{- organizer : User}
+			\attribute{- optionalMessage: String}
+			\operation{+ sendInvitations()}
+			\operation{+ closePoll()}
+			\operation{+ addUser(user: User)}
+			\operation{+ removeUser(user: User)}			
 			\end{class}
 
 			\begin{class}{Response}{0,0}
+			\attribute{- present : Bool}
 			\end{class}
 
 
@@ -39,7 +53,7 @@
 			\association{Response}{responses}{0..*}{User}{1}{user}
 			\association{Response}{responses}{0..*}{Event}{1}{event}
 			\association{DateTimeSlot}{timeslot}{1}{Vote}{1}{vote}
-			\association{Vote}{castVotes}{0..*}{User}{1}{user}
+			\association{Vote}{castVotes}{0..*}{User}{0..*}{usersAgreed}
 			\association{Vote}{votes}{0..*}{Poll}{1}{poll}
 			\association{User}{organizer}{1}{Event}{organizedEvents}{0..*}
 			\composition{Event}{poll}{1}{Poll}
