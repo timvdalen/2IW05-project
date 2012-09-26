@@ -1,4 +1,4 @@
-all: a.once
+all: a.once pdf
 
 %.once:
 	latex report
@@ -9,5 +9,5 @@ clean:
 pdf:
 	dvipdf report.dvi
 
-release: clean a.once b.once c.once
+release: clean a.once b.once c.once pdf
 

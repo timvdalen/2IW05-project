@@ -36,16 +36,55 @@ This section aims to give a first analysis of the system.
 		\label{fig:analysis-model}
 	\end{figure}
 	
-\subsection{System level sequence diagram}
+\subsection{System level sequence diagrams}
 	%Note: These should be for each use case, with System one entity and entities for the actors
-%\begin{figure}[H]
-%%\centering
-%%\begin{msc}{Use case 1}
-%%%\declinst{usr}{User}{}
-%%%\declinst{sys}{System}{}
-%%%
-%%%\mess{Message}{usr}{sys}
-%%\end{msc}
-%%\caption{One}
-%%\label{smsc:one}
-%\end{figure}
+	\begin{figure}[H]
+		\centering
+		\begin{msc}{Create meeting schedule}
+			\declinst{org}{Organizer}{}
+			\declinst{inv}{Invitee}{}
+			\declinst{sys}{System}{}
+			\declinst{email}{Email service}{}
+
+			\mess{Enter event data}{org}{sys}
+			\nextlevel
+
+			\mess{Enter date/time option}{org}{sys}
+			\nextlevel
+
+			\mess{Invite people}{org}{sys}
+			\nextlevel
+
+			\mess{Show event}{sys}{org}
+			\nextlevel
+
+			\mess{Set poll status and limitations}{org}{sys}
+			\nextlevel
+
+			\mess{Submit event}{org}{sys}
+			\nextlevel
+
+			\regionstart{coregion}{sys}			
+			\nextlevel
+
+			\mess{Send confirmation email}{sys}{email}
+			\nextlevel
+			
+			\mess{Send confirmation email}{email}{org}
+			\nextlevel
+
+
+			\mess{Send invitation email}{sys}{email}
+			\nextlevel
+			
+			\mess{Send invition email}{email}{inv}
+			\nextlevel
+
+
+			\regionend{sys}
+			\nextlevel
+
+		\end{msc}
+		\caption{Create meeting schedule}
+		\label{smsc:createmeeting}
+	\end{figure}
