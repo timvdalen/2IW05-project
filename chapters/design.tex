@@ -22,10 +22,10 @@
 
 			\begin{class}{Poll}{9,7}
 			\attribute{- hidden : Bool}
-			\attribute{- log: String}
 			\attribute{- limit: Integer}
 			\attribute{- closed: Bool}
-			\operation{+ removeVot(vote : Vote}
+			\attribute{- options: DateTimeSlot[1..*]}
+			\operation{+ removeVote(vote : Vote)}
 			\operation{+ addVote(vote : Vote)}
 			\operation{+ changeVote(vote : Vote, changedVote: Vote)}
 			\operation{+ sendNotificationEmail()}
@@ -62,17 +62,107 @@
 		\label{fig:class-diagram}
 	\end{figure}
 
+	\emph{Note: We assume there exists a class called \textnormal{Date} that represents a date and a time.}
+
 \subsection{Message Sequence Diagrams}
-	\subsubsection{One}
-		This MSC describes...
-%%\begin{figure}[H]
-%%%\centering
-%%%\begin{msc}{One}
-%%%%\declinst{comp}{Component 1}{}
-%%%%\declinst{compt}{Component 2}{}
-%%%
-%%%%\mess{Message}{comp}{compt}
-%%%\end{msc}
-%%%\caption{One}
-%%%\label{msc:one}
-%%\end{figure}
+	\subsubsection{Create meeting schedule}%TODO: Actually implement all of these methods
+		\begin{figure}[H]
+			\centering
+			\begin{msc}{Create meeting schedule}
+				\declinst{org}{User}{Organizer}
+				\dummyinst{evt}
+				\dummyinst{poll}
+				\declinst{email}{Email}{}
+				\declinst{inv}{User}{Invitee}
+
+				\create{new}{org}{evt}{Event}{}
+				\nextlevel
+				\nextlevel
+				\create{new}{evt}{poll}{Poll}{}
+				\nextlevel
+
+				\mess{setName()}{org}{evt}
+				\nextlevel
+				\mess{setDescription()}{org}{evt}
+				\nextlevel
+				\mess{addTimeSlot()}{org}{evt}
+				\nextlevel
+				\mess{addTimeSlot()}{evt}{poll}
+				\nextlevel
+				\mess{addTimeSlot()}{org}{evt}
+				\nextlevel
+				\mess{addTimeSlot()}{evt}{poll}
+				\nextlevel
+				\nextlevel
+
+				\mess{addUser()}{org}{evt}
+				\nextlevel
+				\mess{addUser()}{org}{evt}
+				\nextlevel
+				\nextlevel
+
+				\mess{setHidden()}{org}{evt}
+				\nextlevel
+				\mess{setHidden()}{evt}{poll}
+				\nextlevel
+				\nextlevel
+
+				\mess{openPoll()}{org}{evt}
+				\nextlevel
+				\regionstart{coregion}{evt}
+				\nextlevel
+				\mess{sendConfirmation()}{evt}{email}
+				\nextlevel
+				\mess{sendConfirmation()}{email}{org}
+				\nextlevel
+				\mess{sendInvitation()}{evt}{email}
+				\nextlevel
+				\mess{sendInvitation()}{email}{inv}
+				\nextlevel
+				\regionend{evt}
+				\nextlevel
+			\end{msc}
+			\caption{Create meeting schedule}
+			\label{msc:createmeeting}
+		\end{figure}
+
+	\subsubsection{Respond to meeting invitation}
+		\begin{figure}[H]
+			\centering
+			\begin{msc}{Respond to meeting invitation}
+				\declinst{usr}{User}{Invitee}
+				\dummyinst{resp}
+				\declinst{evt}{Event}{}
+				\declinst{poll}{Poll}{}
+				\declinst{email}{Email}{}
+				\declinst{org}{User}{Organizer}
+
+				\create{new}{usr}{resp}{Response}
+				\nextlevel
+				\nextlevel
+				\nextlevel
+				\mess{setPresent()}{usr}{resp}
+				\nextlevel
+				\nextlevel
+
+				\mess{addResponse(this, response)}{usr}{evt}
+				\nextlevel
+				\nextlevel
+
+				\mess*{options}{poll}{evt}
+				\mess*{Show DateTimeSlot options}{evt}{usr}
+				\nextlevel
+				\mess{Vote on options}{usr}{evt}
+				\mess{Vote}{evt}{poll}
+				\nextlevel
+				\mess{Notification}{evt}{email}
+				\mess{Send notification}{email}{org}
+				\nextlevel
+				\nextlevel
+				
+				\mess{Show stats}{evt}{usr}
+				\nextlevel
+			\end{msc}
+			\caption{Respond to meeting invitation}
+			\label{msc:respondinvite}
+		\end{figure}
