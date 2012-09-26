@@ -183,3 +183,50 @@ This section aims to give a first analysis of the system.
 		\caption{Administrate event}
 		\label{smsc:adminevent}
 	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\begin{msc}{Close event}
+			\declinst{org}{Organizer}{}
+			\declinst{sys}{System}{}
+			\declinst{email}{Email service}{}
+			\declinst{inv}{Invitee}{}
+			\declinst{inv2}{Invitee}{}
+
+			\mess{Sure?}{sys}{org}
+			\nextlevel
+			\mess*{Yes}{org}{sys}
+			\nextlevel
+			\nextlevel
+
+			\mess{Show date/time options}{sys}{org}
+			\nextlevel
+			\mess*{Select final date}{org}{sys}
+			\nextlevel
+			\nextlevel
+
+			\mess{Set optional message}{org}{sys}
+			\nextlevel
+			\nextlevel
+
+			\mess{Conformation}{sys}{email}
+			\nextlevel
+		
+			\regionstart{coregion}{email}
+			\nextlevel
+	
+			\mess{Confirmation}{email}{org}
+			\nextlevel
+
+			\mess{Confirmation}{email}{inv}
+			\nextlevel
+
+			\mess{Confirmation}{email}{inv2}
+			\nextlevel
+
+			\regionend{email}	
+
+		\end{msc}
+		\caption{Close event}
+		\label{smsc:closeevent}
+	\end{figure}
