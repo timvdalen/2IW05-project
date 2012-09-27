@@ -74,7 +74,7 @@
 	\emph{Note: We assume there exists a class called \textnormal{Date} that represents a date and a time.}
 
 \subsection{Message Sequence Diagrams}
-	\subsubsection{Create meeting schedule}i
+	\subsubsection{Create meeting schedule}
 		\begin{figure}[H]
 			\centering
 			\begin{msc}{Create meeting schedule}
@@ -228,7 +228,8 @@
 			\label{msc:respondinvite}
 		\end{figure}
 
-		This message sequence diagram models the "Edit meeting response" use case. A user can change his present for the event. He can confirm that he is present or he can change it in a later stage when he decide he will not come to the event. When he is present he will vote when the event will be planned. If the votes are not hidden the user can see if the others are present.\\\\
+		This message sequence diagram models the "Edit meeting response" use case. A user can change his present for the event. He can confirm that he is present or he can change it in a later stage when he decide he will not come to the event. When he is present he will vote when the event will be planned. If the votes are not hidden the user can see if the others are present.
+
 		The first step is when the user set his present, the user decide he is present or not. This will be send to the response class so the response class if the user is coming or not. The user can change this present status anytime ( if the event is not cancelled or closed) then the present status of the corresponding respone will be changed to the desired present status. If the user is present then vote options of the timestamps will be send to the user. The user can also see the votes from other people when the poll is not hidden. After this the user can send his votes. And at least the system returns the stats of the event to the user.
 
 	\subsubsection{Administrate event}
