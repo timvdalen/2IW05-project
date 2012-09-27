@@ -226,3 +226,39 @@
 			\label{msc:adminevent}
 		\end{figure}
 
+	\subsubsection{Close event}
+		\begin{figure}[H]
+			\centering
+			\begin{msc}{Close an event}
+				\declinst{org}{User}{Organizer}
+				\declinst{evt}{Event}{}
+				\declinst{poll}{Poll}{}
+				\declinst{email}{Email}{}
+				\declinst{inv}{User}{Invitee}
+
+				\mess{Are you sure?}{evt}{org}
+				\nextlevel
+				\mess{Yes}{org}{evt}
+				\nextlevel
+				\nextlevel
+
+				\mess{Poll results}{evt}{org}
+				\nextlevel
+				\mess{Select final DateTimeSlot}{org}{evt}
+				\nextlevel
+				\mess{Enter optional closing message}{org}{evt}
+				\nextlevel
+				\mess{Confirm email}{evt}{email}
+				\nextlevel
+				\mess{setClosed()}{evt}{poll}
+				\regionstart{coregion}{email}
+				\nextlevel
+				\mess{Confirm email}{email}{inv}
+				\nextlevel
+				\mess{Confirm email}{email}{org}
+				\nextlevel
+				\regionend{email}
+			\end{msc}
+			\caption{Close an event}
+			\label{msc:closeevent}
+		\end{figure}
