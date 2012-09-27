@@ -109,7 +109,10 @@ This section aims to give a first analysis of the system.
 		\caption{Create meeting schedule}
 		\label{smsc:createmeeting}
 	\end{figure}
+	
+	We assume that the user is already registered and logged in before the start of this sequence chart. Handling login is out of the scope of this project.
 
+	
 	\begin{figure}[H]
 		\centering
 		\begin{msc}{Respond to meeting invitation}
@@ -142,6 +145,10 @@ This section aims to give a first analysis of the system.
 		\caption{Respond to meeting invitation}
 		\label{smsc:respondmeeting}
 	\end{figure}
+	
+	The same assumption holds for users that receive an invitation. Before this sequence chart starts, users have already completed either a signup process or a login process. Again, specifying these is out of the scope of this project.
+	
+	This assumption will hold for any of the SMSCs in this section.
 
 	\begin{figure}[H]
 		\centering
