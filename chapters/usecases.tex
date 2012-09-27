@@ -11,16 +11,16 @@ This section describes the use cases of the system.
 				\begin{description}
 					\item[Main scenarios]\textbf{:}\\
 								\begin{enumerate}
-									\item The user enters his/her name, the event name and an event description
-									\item The user enters some date/time options
-									\item The user enters email addresses for attendees and a custom message
-									\item The user specifies whether or not the poll should be 'hidden' and voting limitations
-									\item The user submits the event to the system by openeing the poll
+									\item The user enters his/her name, the event name and an event description.
+									\item The user enters some date/time options.
+									\item The user enters email addresses for attendees and a custom message.
+									\item The user specifies whether or not the poll should be 'hidden' and voting limitations.
+									\item The user submits the event to the system by openeing the poll.
 									\item The system sends confirmation and invitation emails.
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
-									\item 2.1 One or more date/time pairs are not valid, the system shows an error message and the user is back at the start of step 2, with all fields already filled in, except for the rrorous ones.
+									\item 2.1 One or more date/time pairs are not valid, the system shows an error message and the user is back at the start of step 2, with all fields already filled in, except for the invalid ones.
 								\end{itemize}
 				\end{description}
 \end{description}
@@ -36,17 +36,17 @@ This section describes the use cases of the system.
 				\begin{description}
 					\item[Main scenarios]\textbf{:}\\
 								\begin{enumerate}
-									\item The user confirms that he or she would like to attend the event
-									\item The user votes on date/time options
-									\item The system sends a notification email to the organizer
-									\item The user is able to see the votes of other invitees
+									\item The user confirms that he or she would like to attend the event.
+									\item The user votes on date/time options.
+									\item The system sends a notification email to the organizer.
+									\item The user is able to see the votes of other invitees.
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
 									%TODO: Not sure if an alternative is really the way to go. I used to have a seperate use case for accepting and declining, but that seemed a bit superfluous.
 									\item 1.1 If the user doesn't want to participate in the event, he or she declines the invitation.	
 									\item 2.1 If the organizer made any voting restrictions, such as enabling users to only vote once or limiting the number of invitees that can vote on a certain date/time, these are enforced.
-									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown
+									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown.
 								\end{itemize}
 				\end{description}
 \end{description}
@@ -56,20 +56,20 @@ This section describes the use cases of the system.
 \begin{description}
 	\item[Pre-condition:] User has responded to a meeting invitation and the meeting poll is open
 	\item[Trigger:] User clicks the link in the invitation email
-	\item[Guarantee:] The users answer/votes might have been changed.
+	\item[Guarantee:] The users answer/votes might have been changed
 	\item[Scenarios]\textbf{:}\\
 				\begin{description}
 					\item[Main scenarios]\textbf{:}\\
 								\begin{enumerate}
-									\item The user confirms that he/she would still like to attend the event
-									\item The user votes on date/time options
-									\item The system sends a notification email to the organizer
-									\item The user is able to see the votes of other invitees
+									\item The user confirms that he/she would still like to attend the event.
+									\item The user votes on date/time options.
+									\item The system sends a notification email to the organizer.
+									\item The user is able to see the votes of other invitees.
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
 									\item 1.1 If the user doesn't want to participate anymore, he or she can decide to decline the invitation.
-									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown
+									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown.
 								\end{itemize}
 				\end{description}
 \end{description}
@@ -102,7 +102,7 @@ This section describes the use cases of the system.
 								\begin{enumerate}
 									\item The user is presented with a modal dialog asking them if they are sure. The user clicks 'yes'.
 									\item The user selects the final date/time based on the poll results.
-									\item Optionally, the user enters a closing message for the event
+									\item Optionally, the user enters a closing message for the event.
 									\item An email containing the optional message and the final date/time is sent to each invitee that confirmed.
 									\item The event is closed.
 								\end{enumerate}
