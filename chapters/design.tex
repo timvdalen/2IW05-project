@@ -172,6 +172,11 @@
 			\label{msc:respondinvite}
 		\end{figure}
 
+		This MSC models a run of the system for the usecase "Respond to meeting invitation", which describes a case where a user receives an invitation to attend an event. In our model, we assume that this can only happen via email, but one could imagine a system where already existing users receive a notification op the homepage of the website.
+		The user creates a new Response, containing 'true' for his presence. This Response is added to the Event the user was invited for. The Event reads the options from its Poll and then shows them to the User. The user submits a Vote. The Event saves this in the Poll.
+		It then notifies the email service which will send an email to the organizer.
+		The Event will then show the statistics (number of votes for each possible DateTimeSlot) to the User.
+
 	\subsubsection{Edit meeting response}
 		\begin{figure}[H]
 			\centering
