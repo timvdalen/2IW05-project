@@ -166,3 +166,62 @@
 			\caption{Respond to meeting invitation}
 			\label{msc:respondinvite}
 		\end{figure}
+
+	\subsubsection{Edit meeting response}
+		\begin{figure}[H]
+			\centering
+			\begin{msc}{Respond to meeting invitation}
+				\declinst{usr}{User}{Invitee}
+				\declinst{resp}{Repsonse}{}
+				\declinst{evt}{Event}{}
+				\declinst{poll}{Poll}{}
+				\declinst{email}{Email}{}
+				\declinst{org}{User}{Organizer}
+
+				\mess{setPresent()}{usr}{resp}
+				\nextlevel
+				\nextlevel
+
+				\mess{changeResponse(this, response)}{usr}{evt}
+				\nextlevel
+				\nextlevel
+
+				\mess*{options}{poll}{evt}
+				\mess*{Show DateTimeSlot options}{evt}{usr}
+				\nextlevel
+				\mess*{previous votes}{poll}{evt}
+				\mess*{Show previous votes}{evt}{usr}
+				\nextlevel
+				\mess{Vote on options}{usr}{evt}
+				\mess{Vote}{evt}{poll}
+				\nextlevel
+				\mess{Notification}{evt}{email}
+				\mess{Send notification}{email}{org}
+				\nextlevel
+				\nextlevel
+				
+				\mess{Show stats}{evt}{usr}
+				\nextlevel
+			\end{msc}
+			\caption{Respond to meeting invitation}
+			\label{msc:respondinvite}
+		\end{figure}
+
+	\subsection{Administrate event}
+		\begin{figure}[H]
+			\centering
+			\begin{msc}{Administrate event}
+				\declinst{org}{User}{Organizer}
+				\declinst{evt}{Event}{}
+
+				\mess{Show event overview}{evt}{org}
+				\nextlevel
+				\mess{Show options}{evt}{org}
+				\nextlevel
+				\mess{Change option/delete/view log}{org}{evt}
+				\nextlevel
+				\mess*{}{evt}{org}
+			\end{msc}
+			\caption{Administrate event}
+			\label{msc:adminevent}
+		\end{figure}
