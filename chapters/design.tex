@@ -74,7 +74,7 @@
 	\emph{Note: We assume there exists a class called \textnormal{Date} that represents a date and a time.}
 
 \subsection{Message Sequence Diagrams}
-	\subsubsection{Create meeting schedule}
+	\subsubsection{Create meeting schedule}i
 		\begin{figure}[H]
 			\centering
 			\begin{msc}{Create meeting schedule}
@@ -134,6 +134,10 @@
 			\caption{Create meeting schedule}
 			\label{msc:createmeeting}
 		\end{figure}
+
+		The procedure modelled above will be executed once the User, the Organizer of the Event, clicks the link indicating that he or she wants to create a new Event. 
+		To do so the User Organizer needs to enter a name, description and possible timeslots. These time slots will be entered into the Poll. After entering this general information the Organizer needs to add other Users to the event, to be invited. All that is left is for the Organizer to choose wether to make the Poll visible to the other users. Now that all options have been set the Organizer needs to open the Poll.
+		After all event information has been received, messages will be sent through the Email service to all Users involved. A confirmation message will be sent to the 	Organizer and Invitations will be sent to all invited Users.
 
 	\subsubsection{Respond to meeting invitation}
 		\begin{figure}[H]
@@ -221,6 +225,8 @@
 			\caption{Respond to meeting invitation}
 			\label{msc:respondinvite}
 		\end{figure}
+
+		This message sequence diagram models the "Edit meeting response" use case. A user can change his present for the event. He can confirm that he is present or he can change it in a later stage when he decide he will not come to the event. And if the votes are not hidden the user can see if the others are present. 
 
 	\subsubsection{Administrate event}
 		\begin{figure}[H]
