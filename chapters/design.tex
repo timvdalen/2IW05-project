@@ -69,8 +69,13 @@
 
 	For most private attributes we have left out getters and setters because they are implied. For some attributes however, like the responses attribute of Event and the votes attribute of Poll, for which elements can change, we have supplied some getters, setters and changers.
 
+	
 	Classes represent real-world entities as described in section~\ref{sec:analysisdiagram}.
 
+	
+	In this model, most of the functionality is in the \emph{Event} class. We think this is quite natural since this is clearly the most important entity in the system specification.
+	
+	
 	\emph{Note: We assume there exists a class called \textnormal{Date} that represents a date and a time.}
 
 \subsection{Message Sequence Diagrams}
@@ -135,11 +140,11 @@
 			\label{msc:createmeeting}
 		\end{figure}
 
-		The procedure modelled above will be executed once the User, the Organizer of the Event, clicks the link indicating that he or she wants to create a new Event. 
+		The procedure modelled above will be executed once the User, the organizer of the Event, clicks the link indicating that he or she wants to create a new Event. 
 
-		To do so the User Organizer needs to enter a name, description and possible timeslots. These time slots will be entered into the Poll. After entering this general information the Organizer needs to add other Users to the event, to be invited. All that is left is for the Organizer to choose wether to make the Poll visible to the other users. Now that all options have been set the Organizer needs to open the Poll.
+		To do so the User organizer needs to enter a name, description and possible timeslots. These time slots will be entered into the Poll. After entering this general information the Organizer needs to add other Users to the event, to be invited. All that is left is for the organizer to choose wether to make the Poll visible to the other users. Now that all options have been set the organizer needs to open the Poll.
 
-		After all event information has been received, messages will be sent through the Email service to all Users involved. A confirmation message will be sent to the 	Organizer and Invitations will be sent to all invited Users.
+		After all event information has been received, messages will be sent through the Email service to all Users involved. A confirmation message will be sent to the organizer and invitations will be sent to all invited Users.
 
 	\subsubsection{Respond to meeting invitation}
 		\begin{figure}[H]
@@ -230,7 +235,7 @@
 
 		This message sequence diagram models the "Edit meeting response" use case. A user can change his present for the event. He can confirm that he is present or he can change it in a later stage when he decide he will not come to the event. When he is present he will vote when the event will be planned. If the votes are not hidden the user can see if the others are present.
 
-		The first step is when the user set his present, the user decide he is present or not. This will be send to the response class so the response class if the user is coming or not. The user can change this present status anytime ( if the event is not cancelled or closed) then the present status of the corresponding respone will be changed to the desired present status. If the user is present then vote options of the timestamps will be send to the user. The user can also see the votes from other people when the poll is not hidden. After this the user can send his votes. And at least the system returns the stats of the event to the user.
+		The first step is when the User sets the present attribute of the Reponse class, whether or not the user is present or not. The User can change this status at any time (if the event is not cancelled or closed in the mean time) which will cause the present status of the associated Reponse class to change. If the User is present then he or she will be presented with Vote options, represented by DateTimeStamp objects. The Event will make sure the Email service sends a notification to the organizer of the Event. The User can then see the Votes other Users cast, since this Poll is not hidden.
 
 	\subsubsection{Administrate event}
 		\begin{figure}[H]
@@ -253,7 +258,7 @@
 
 		This message sequence chart is a fairly simple one, modelling the behaviour from the "Administrate event" use case, which describes an Event administrator trying to modify a setting of an Event.
 
-		The User first gets an overview of the Event and then is presented with all options, which can then be modified.
+		The User first gets an overview of the Event and is then presented with all settings for the Event. The User selects one these settings and chooses the new value for this setting.
 
 	\subsubsection{Close event}
 		\begin{figure}[H]
@@ -292,6 +297,6 @@
 			\label{msc:closeevent}
 		\end{figure}
  
-		Once a User who is the Organizer of an Event decides to close an Event the system will first ask him or her for confirmation. When the action gets confirmed the the rest of the closing procedure is carried out.
+		Once a User that is the organizer of an Event decides to close that particular Event the system will first ask them for confirmation. When the User confirmes the close, the rest of the closing procedure is carried out.
 
-		The results of the Poll will be shown to the Organizer and he will be prompted to select the definitive date and time for the Event. The Organizer can enter a custom message to be sent to all involved Users. When the Organizer finishes the message or indicates no specific message is needed, the Poll will be closed and Emails will be sent to all users indicating the closing of the Poll. These Emails will contain the custom message if available.
+		The results of the Poll will be shown to the organizer and he or she will be prompted to select the definitive date and time for the Event. The organizer can enter a custom message to be sent to all involved Users. When the organizer submits the message or indicates no specific message is needed, the Poll will be closed and Emails will be sent to all Users indicating the closing of the Poll. These Emails will contain the final date and time of the Event and the custom message if that is available.
