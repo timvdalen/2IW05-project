@@ -1,3 +1,11 @@
 This document presents a formal specification for the 'Doodle' meeting website for the 2012 fall 2IW05 software specification course.
 
 We will follow a normal iterative approach (with only two iterations for two deliverables) where we will first extract use cases from the informal specification and use them to analyse the informal specification. Then we will use this analysis to form a system design.
+
+\paragraph{}
+The goal of this project is to specify a system where people can agree on meeting times. An organizer creates a meeting and specifies dates that are available and people that want to attend the event can vote on times they are available.
+
+When the organizer wants to close the event, all participants receive an email with the final details. We can assume that emails are sent using a reliable third party service which is not part of our system. In this document, we will call this email system "Email" or "Email system".
+
+\paragraph{}
+We will describe a basic version of this system and indicate improvements that are out of the scope of this project where we feel they would improve the user experience.
