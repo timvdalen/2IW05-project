@@ -136,7 +136,9 @@
 		\end{figure}
 
 		The procedure modelled above will be executed once the User, the Organizer of the Event, clicks the link indicating that he or she wants to create a new Event. 
+
 		To do so the User Organizer needs to enter a name, description and possible timeslots. These time slots will be entered into the Poll. After entering this general information the Organizer needs to add other Users to the event, to be invited. All that is left is for the Organizer to choose wether to make the Poll visible to the other users. Now that all options have been set the Organizer needs to open the Poll.
+
 		After all event information has been received, messages will be sent through the Email service to all Users involved. A confirmation message will be sent to the 	Organizer and Invitations will be sent to all invited Users.
 
 	\subsubsection{Respond to meeting invitation}
@@ -250,6 +252,7 @@
 		\end{figure}
 
 		This message sequence chart is a fairly simple one, modelling the behaviour from the "Administrate event" use case, which describes an Event administrator trying to modify a setting of an Event.
+
 		The User first gets an overview of the Event and then is presented with all options, which can then be modified.
 
 	\subsubsection{Close event}
@@ -288,3 +291,7 @@
 			\caption{Close an event}
 			\label{msc:closeevent}
 		\end{figure}
+ 
+		Once a User who is the Organizer of an Event decides to close an Event the system will first ask him or her for confirmation. When the action gets confirmed the the rest of the closing procedure is carried out.
+
+		The results of the Poll will be shown to the Organizer and he will be prompted to select the definitive date and time for the Event. The Organizer can enter a custom message to be sent to all involved Users. When the Organizer finishes the message or indicates no specific message is needed, the Poll will be closed and Emails will be sent to all users indicating the closing of the Poll. These Emails will contain the custom message if available.
