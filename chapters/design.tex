@@ -29,6 +29,7 @@
 			\operation{+ addVote(vote : Vote)}
 			\operation{+ changeVote(vote : Vote, changedVote: Vote)}
 			\operation{+ sendNotificationEmail()}
+			\operation{+ addTimeSlot(dateTimeSlot : DateTimeSlot)}
 			\end{class}
 
 			\begin{class}{Event}{9,0}
@@ -38,9 +39,13 @@
 			\attribute{- participants: User[*]}
 			\attribute{- optionalMessage: String}
 			\operation{+ sendInvitations()}
+			\operation{+ openPoll()}
 			\operation{+ closePoll()}
 			\operation{+ addUser(user: User)}
-			\operation{+ removeUser(user: User)}			
+			\operation{+ removeUser(user: User)}		
+			\operation{+ addResponse(response: Response)}
+			\operation{+ changeResponse(oldResponse : Response, newResponse: Response)}
+
 			\end{class}
 
 			\begin{class}{Response}{0,0}
@@ -65,7 +70,7 @@
 	\emph{Note: We assume there exists a class called \textnormal{Date} that represents a date and a time.}
 
 \subsection{Message Sequence Diagrams}
-	\subsubsection{Create meeting schedule}%TODO: Actually implement all of these methods
+	\subsubsection{Create meeting schedule}
 		\begin{figure}[H]
 			\centering
 			\begin{msc}{Create meeting schedule}
@@ -111,9 +116,9 @@
 				\nextlevel
 				\regionstart{coregion}{evt}
 				\nextlevel
-				\mess{sendConfirmation()}{evt}{email}
+				\mess{Send confirmation}{evt}{email}
 				\nextlevel
-				\mess{sendConfirmation()}{email}{org}
+				\mess{Send confirmation}{email}{org}
 				\nextlevel
 				\mess{sendInvitation()}{evt}{email}
 				\nextlevel
