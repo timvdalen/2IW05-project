@@ -3,24 +3,24 @@
 		\centering
 		\begin{tikzpicture}
 			%Ignore the {x,y} values while working on this, we'll change that later
-			\begin{class}{User}{0,7}
+			\begin{class}[text width=4cm]{User}{0,5}
 			\attribute{- id : integer}
 			\attribute{- name : String}
 			\attribute{- password : String}
 			\attribute{- emailAdress: String}
 			\end{class}
 		
-			\begin{class}{Vote}{4,12}
+			\begin{class}[text width=6cm]{Vote}{0,10}
 			\attribute{- dateTimeSlot : DateTimeSlot }
 			\operation{+ userAgreed(user: User)}
 			\end{class}
 
-			\begin{class}{DateTimeSlot}{4,16}
+			\begin{class}[text width=4cm]{DateTimeSlot}{0,14}
 			\attribute{- startDate : Date}
 			\attribute{- endDate : Date}
 			\end{class}
 
-			\begin{class}{Poll}{9,7}
+			\begin{class}{Poll}{9,13}
 			\attribute{- hidden : Bool}
 			\attribute{- limit: Integer}
 			\attribute{- closed: Bool}
@@ -32,7 +32,7 @@
 			\operation{+ addTimeSlot(dateTimeSlot : DateTimeSlot)}
 			\end{class}
 
-			\begin{class}{Event}{9,0}
+			\begin{class}[text width=6cm]{Event}{9,3}
 			\attribute{- id : integer}
 			\attribute{- name : String}
 			\attribute{- description: String}
@@ -48,7 +48,7 @@
 
 			\end{class}
 
-			\begin{class}{Response}{0,0}
+			\begin{class}[text width=3cm]{Response}{0,0}
 			\attribute{- present : Bool}
 			\end{class}
 
@@ -66,6 +66,10 @@
 		\caption{High-level entities in the system}
 		\label{fig:class-diagram}
 	\end{figure}
+
+	For most private attributes we have left out getters and setters because they are implied. For some attributes however, like the responses attribute of Event and the votes attribute of Poll, for which elements can change, we have supplied some getters, setters and changers.
+
+	Classes represent real-world entities as described in section~\ref{sec:analysisdiagram}.
 
 	\emph{Note: We assume there exists a class called \textnormal{Date} that represents a date and a time.}
 
@@ -177,6 +181,7 @@
 		\end{figure}
 
 		This MSC models a run of the system for the usecase "Respond to meeting invitation", which describes a case where a user receives an invitation to attend an event. In our model, we assume that this can only happen via email, but one could imagine a system where already existing users receive a notification op the homepage of the website.
+
 		The user creates a new Response, containing 'true' for his presence. This Response is added to the Event the user was invited for. The Event reads the options from its Poll and then shows them to the User. The user submits a Vote. The Event saves this in the Poll.
 		It then notifies the email service which will send an email to the organizer.
 		The Event will then show the statistics (number of votes for each possible DateTimeSlot) to the User.
