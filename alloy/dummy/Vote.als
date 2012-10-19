@@ -1,0 +1,3 @@
+module VoteDummyModule
+
+sig Vote {}

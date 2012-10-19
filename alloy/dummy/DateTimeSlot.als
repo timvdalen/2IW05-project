@@ -1,0 +1,3 @@
+module DateTimeSlotDummyModule
+
+sig DateTimeSlot {}

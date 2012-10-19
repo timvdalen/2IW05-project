@@ -1,0 +1,3 @@
+module ResponseDummyModule
+
+sig Response {}

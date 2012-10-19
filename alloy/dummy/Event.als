@@ -1,0 +1,3 @@
+module EventDummyModule
+
+sig Event {}

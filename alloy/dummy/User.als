@@ -1,0 +1,3 @@
+module UserDummyModule
+
+sig User {}

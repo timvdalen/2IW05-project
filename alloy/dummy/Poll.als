@@ -1,0 +1,3 @@
+module PollDummyModule
+
+sig Poll {}
