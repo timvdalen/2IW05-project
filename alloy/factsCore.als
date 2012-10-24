@@ -8,16 +8,8 @@ fact oneResponsePerEvent{
 			r = r'
 }
 
-/*
-See http://stackoverflow.com/questions/12976917/accumulation-of-union-of-sets
 fact participantsAreReponseTrue{
 	all e : Event |
-		e.participants = sum u : User | 
-			
+		e.participants = { u : User |
+			some r : Response | r.user = u and r.event = e and r.present = True }
 }
-
-fun trueResponses(e : Event){
-	all r : Reponse |
-		r.event = e and r.present = True
-}
-*/
