@@ -13,3 +13,25 @@ fact participantsAreReponseTrue{
 		e.participants = { u : User |
 			some r : Response | r.user = u and r.event = e and r.present = True }
 }
+
+fact onlyOneOrganizer{
+	all u, u' : User |
+		all e : u.organizedEvents |
+			e in u'.organizedEvents implies
+				u = u'
+}
+
+fact organizerIsUserThatOrganizes{
+	all e : Event |
+		e.organizer = { u : User | e in u.organizedEvents }
+}
+
+fact eventRepsonsesAreAllResponsesForEvent{
+	all e : Event |
+		e.responses = { r : Response | r.event = e }
+}
+
+fact userResponsesAreAllResponsesForUser{
+	all u : User |
+		u.responses = { r : Response | r.user = u }
+}

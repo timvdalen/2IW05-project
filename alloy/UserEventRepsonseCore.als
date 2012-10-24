@@ -3,7 +3,7 @@ module CoreModule
 open util/bool
 open util/basetypes
 
-open dummy/Poll
+open Poll
 
 sig Event {
 	id : ID,
@@ -11,7 +11,9 @@ sig Event {
 	description : DescriptionType,
 	optionalMessage : DescriptionType,
 	participants : some User,
-	poll : Poll
+	poll : Poll,
+	organizer : User,
+	responses : some Response
 }
 
 sig Response{
@@ -25,5 +27,6 @@ sig User{
 	name : NameType,
 	password: PassType,
 	emailAddress : EmailType,
-	organizedEvents : some Event//TODO: Again, multiplicity
+	organizedEvents : some Event,//TODO: Again, multiplicity
+	responses : some Response
 }
