@@ -38,6 +38,7 @@
 			\attribute{- description: String}
 			\attribute{- participants: User[*]}
 			\attribute{- optionalMessage: String}
+			\attribute{- finalDateTimeSlot: DataTimeSlot}
 			\operation{+ sendInvitations()}
 			\operation{+ openPoll()}
 			\operation{+ closePoll()}
@@ -45,6 +46,12 @@
 			\operation{+ removeUser(user: User)}		
 			\operation{+ addResponse(response: Response)}
 			\operation{+ changeResponse(oldResponse : Response, newResponse: Response)}
+			\operation{+ getOverview(): String}
+			\operation{+ getOptions(Poll p): String}
+			\operation{+ changeOption(Poll p)}
+			\operation{+ getLog(): String}
+			\operation{+ delete()}
+			\operation{+ showPollResults()}
 
 			\end{class}
 
@@ -244,11 +251,11 @@
 				\declinst{org}{User}{Organizer}
 				\declinst{evt}{Event}{}
 
-				\mess{Show event overview}{evt}{org}
+				\mess{getOverview()}{evt}{org}
 				\nextlevel
-				\mess{Show options}{evt}{org}
+				\mess{getOptions()}{evt}{org}
 				\nextlevel
-				\mess{Change option/delete/view log}{org}{evt}
+				\mess{changeOption(p: Poll)/delete()/getLog()}{org}{evt}
 				\nextlevel
 				\mess*{}{evt}{org}
 			\end{msc}
@@ -278,9 +285,9 @@
 
 				\mess{Poll results}{evt}{org}
 				\nextlevel
-				\mess{Select final DateTimeSlot}{org}{evt}
+				\mess{setFinalDateTimeSlot(d: DateTimeSlot)}{org}{evt}
 				\nextlevel
-				\mess{Enter optional closing message}{org}{evt}
+				\mess{setOptionalMessage(message : String)}{org}{evt}
 				\nextlevel
 				\mess{Confirm email}{evt}{email}
 				\nextlevel

@@ -11,7 +11,7 @@ A more complete, real-world system could benefit from additions as:
 	\item allowing closed events to be reopened (and in general a more flexible event system).
 \end{itemize}
 
-\subsubsection{Create meeting schedule}
+\subsection{Create meeting schedule}
 
 \begin{description}
 	\item[Pre-condition:] User is registered and logged in
@@ -25,18 +25,18 @@ A more complete, real-world system could benefit from additions as:
 									\item The user enters some date/time options.
 									\item The user enters email addresses for attendees and a custom message.
 									\item The user specifies whether or not the poll should be 'hidden' and voting limitations.
-									\item The user submits the event to the system by openeing the poll.
+									\item The user submits the event to the system by opening the poll.
 									\item The system sends confirmation and invitation emails.
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
-									\item 2.1 One or more date/time pairs are not valid, the system shows an error message and the user is back at the start of step 2, with all fields already filled in, except for the invalid ones.
+									\item 2.1 One or more date/time pairs are not valid, the system shows an error message and the user is back at the start of step 2, with all fields already filled in, except for the invalid ones. The use case is ended
 								\end{itemize}
 				\end{description}
 \end{description}
 
 
-\subsubsection{Respond to a meeting invitation}
+\subsection{Respond to a meeting invitation}
 
 \begin{description}
 	\item[Pre-condition:] User has received an invitation email and the meeting poll is open
@@ -54,19 +54,19 @@ A more complete, real-world system could benefit from additions as:
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
 									%TODO: Not sure if an alternative is really the way to go. I used to have a seperate use case for accepting and declining, but that seemed a bit superfluous.
-									\item 1.1 If the user doesn't want to participate in the event, he or she declines the invitation.	
-									\item 2.1 If the organizer made any voting restrictions, such as enabling users to only vote once or limiting the number of invitees that can vote on a certain date/time, these are enforced.
-									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown.
+									\item 1.1 If the user doesn't want to participate in the event, he or she declines the invitation.	The use case is ended
+									\item 2.1 If the organizer made any voting restrictions, such as enabling users to only vote once or limiting the number of invitees that can vote on a certain date/time, these are enforced. They will continue to step 3.
+									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown. The use case is ended.
 								\end{itemize}
 				\end{description}
 \end{description}
 
-\subsubsection{Edit a meeting response}
+\subsection{Edit a meeting response}
 
 \begin{description}
 	\item[Pre-condition:] User has responded to a meeting invitation and the meeting poll is open
 	\item[Trigger:] User clicks the link in the invitation email
-	\item[Guarantee:] The users answer/votes might have been changed
+	\item[Guarantee:] The users can confirm his presence by answering the poll.
 	\item[Scenarios]\textbf{:}\\
 				\begin{description}
 					\item[Main scenarios]\textbf{:}\\
@@ -78,13 +78,13 @@ A more complete, real-world system could benefit from additions as:
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
-									\item 1.1 If the user doesn't want to participate anymore, he or she can decide to decline the invitation.
-									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown.
+									\item 1.1 If the user doesn't want to participate anymore, he or she can decide to decline the invitation. The use case is ended
+									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown. The use case is ended.
 								\end{itemize}
 				\end{description}
 \end{description}
 
-\subsubsection{Administrate an event}
+\subsection{Administrate an event}
 
 \begin{description}
 	\item[Pre-condition:] The user is the organizer for this event
@@ -100,7 +100,7 @@ A more complete, real-world system could benefit from additions as:
 				\end{description}
 \end{description}
 
-\subsubsection{Close an event}
+\subsection{Close an event}
 
 \begin{description}
 	\item[Pre-condition:] The user is the organizer for this event
@@ -110,7 +110,7 @@ A more complete, real-world system could benefit from additions as:
 				\begin{description}
 					\item[Main scenarios]\textbf{:}\\
 								\begin{enumerate}
-									\item The user is presented with a modal dialog asking them if they are sure. The user clicks 'yes'.
+									\item The system let user confirms his choice.
 									\item The user selects the final date/time based on the poll results.
 									\item Optionally, the user enters a closing message for the event.
 									\item An email containing the optional message and the final date/time is sent to each invitee that confirmed.
@@ -118,9 +118,10 @@ A more complete, real-world system could benefit from additions as:
 								\end{enumerate}
 					\item[Alternatives]\textbf{:}\\
 								\begin{itemize}
-									\item 1.1 If the user clicks 'no', the closing is cancelled.
+									\item 1.1 If the user clicks 'no', the closing is cancelled. The use case is ended.
 								\end{itemize}
-
+					\item[Design decision:] Wewant to confirm the choice because when the event is deleted there is no way back and it will cancel the whole event.
+					
 				\end{description}
 \end{description}
 
