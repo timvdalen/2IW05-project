@@ -1,6 +1,6 @@
 module Facts
 
-open UserEventRepsonseCore
+open Core
 
 fact oneResponsePerEvent{
 	all r, r' : Response |
@@ -34,4 +34,9 @@ fact eventRepsonsesAreAllResponsesForEvent{
 fact userResponsesAreAllResponsesForUser{
 	all u : User |
 		u.responses = { r : Response | r.user = u }
+}
+
+fact userCastVotesAreAllVotesUserCast{
+	all u : User |
+		u.castVotes = { v : Vote | u in v.usersAgreed }
 }

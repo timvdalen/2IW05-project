@@ -1,6 +1,6 @@
 module userAgreedModule
 
-open Vote
+open factsCore
 
 
 pred userAgreed(v, v' : Vote, u : User){

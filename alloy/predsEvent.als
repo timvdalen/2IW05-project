@@ -1,4 +1,4 @@
-module predsEvent
+module predsEventModule
 
 open factsCore
 
@@ -43,4 +43,24 @@ pred closePoll(e, e' : Event){
 	e.poll.options = e'.poll.options
 }
 
-run closePoll
+//addUser predicate is satisfied by the addResponse predicate and the fact participantsAreReponseTrue
+
+//TODO: Why is this invalid?
+pred addResponse(e, e' : Event, r : Response){
+	e.id = e'.id
+	e.name = e'.name
+	e.description = e'.description
+	e.optionalMessage = e'.optionalMessage
+	e.organizer = e'.organizer
+
+	all response : e.responses |
+		response.user != r.user and response.event != r.event and response.present != r.present
+	
+	some newresponse : Response |
+		newresponse.user = r.user and
+		newresponse.event = r.event and
+		newresponse.present = r.present and
+		e'.responses = e.responses + newresponse
+}
+
+run openPoll
