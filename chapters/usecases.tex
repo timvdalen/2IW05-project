@@ -10,7 +10,9 @@ A more complete, real-world system could benefit from additions as:
 	\item more options for inviting people (for instance, allow invitees to invite new people for public events).
 	\item allowing closed events to be reopened (and in general a more flexible event system).
 \end{itemize}
-
+\subsection{Use Case Diagram}
+\includegraphics{ucd/ucd.png}
+\pagebreak
 \subsection{Create meeting schedule}
 
 \begin{description}
@@ -32,11 +34,9 @@ A more complete, real-world system could benefit from additions as:
 								\begin{itemize}
 									\item 2.1 One or more date/time pairs are not valid, the system shows an error message and the user is back at the start of step 2, with all fields already filled in, except for the invalid ones.
 								\end{itemize}
-					\item[Use Case Diagram]\textbf{:}\\
-						\includegraphics[scale=0.5]{ucd/Diagram1.png}\\
 				\end{description}
 \end{description}
-
+\pagebreak
 
 \subsection{Respond to a meeting invitation}
 
@@ -60,11 +60,9 @@ A more complete, real-world system could benefit from additions as:
 									\item 2.1 If the organizer made any voting restrictions, such as enabling users to only vote once or limiting the number of invitees that can vote on a certain date/time, these are enforced. They will continue to step 3.
 									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown. The use case is ended.
 								\end{itemize}
-					\item[Use Case Diagram]\textbf{:}\\
-						\includegraphics[scale=0.5]{ucd/Diagram2.png}
 				\end{description}
 \end{description}
-
+\pagebreak
 \subsection{Edit a meeting response}
 
 \begin{description}
@@ -85,10 +83,9 @@ A more complete, real-world system could benefit from additions as:
 									\item 1.1 If the user doesn't want to participate anymore, he or she can decide to decline the invitation. The use case is ended
 									\item 4.1 If the poll was marked 'hidden' by the organizer, the results are not shown. The use case is ended.
 								\end{itemize}
-					\item[Use Case Diagram]\textbf{:}\\
-						\includegraphics[scale=0.5]{ucd/Diagram2.png}
 				\end{description}
 \end{description}
+
 
 \subsection{Administrate an event}
 
@@ -103,11 +100,9 @@ A more complete, real-world system could benefit from additions as:
 									\item The user is presented with an overview of the event.
 									\item The user chooses to delete the event, edit the general settings, change the date/time options or view event logs.
 								\end{enumerate}
-					\item[Use Case Diagram]\textbf{:}\\
-						\includegraphics[scale=0.5]{ucd/Diagram3.png}
 				\end{description}
 \end{description}
-
+\pagebreak
 \subsection{Close an event}
 
 \begin{description}
@@ -129,8 +124,6 @@ A more complete, real-world system could benefit from additions as:
 									\item 1.1 If the user clicks 'no', the closing is cancelled. The use case is ended.
 								\end{itemize}
 					\item[Design decision]\textbf{:}\\Wewant to confirm the choice because when the event is deleted there is no way back and it will cancel the whole event.
-					\item[Use Case Diagram]\textbf{:}\\
-						\includegraphics[scale=0.5]{ucd/Diagram4.png}
 				\end{description}
 \end{description}
 
