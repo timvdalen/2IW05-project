@@ -20,7 +20,7 @@
 			\attribute{- endDate : Date}
 			\end{class}
 
-			\begin{class}{Poll}{9,13}
+			\begin{class}{Poll}{11,13}
 			\attribute{- hidden : Bool}
 			\attribute{- limit: Integer}
 			\attribute{- closed: Bool}
@@ -32,7 +32,7 @@
 			\operation{+ castVote(vote : Vote, user : User}
 			\end{class}
 
-			\begin{class}[text width=6cm]{Event}{9,3}
+			\begin{class}[text width=6cm]{Event}{11,3}
 			\attribute{- id : integer}
 			\attribute{- name : String}
 			\attribute{- description: String}
@@ -55,8 +55,11 @@
 
 			\end{class}
 
-			\begin{class}[text width=3cm]{Response}{0,0}
+			\begin{class}[text width=3cm]{Response}{6,9}
 			\attribute{- present : Bool}
+			\end{class}
+
+			\begin{class}{dataTracker}{0,0}
 			\end{class}
 
 
@@ -68,6 +71,8 @@
 			\association{Vote}{castVotes}{0..*}{User}{0..*}{usersAgreed}
 			\association{Vote}{votes}{0..*}{Poll}{1}{poll}
 			\association{User}{organizer}{1}{Event}{organizedEvents}{0..*}
+			\unidirectionalAssociation{User}{users}{0..*}{dataTracker}
+			\unidirectionalAssociation{Event}{events}{0..*}{dataTracker}
 			\composition{Event}{poll}{1}{Poll}
 		\end{tikzpicture}
 		\caption{High-level entities in the system}
