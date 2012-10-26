@@ -43,5 +43,3 @@ pred removeVote(p, p' : Poll, v : Vote){
 }
 
 //pred castVote(Vote, User) is predUserAgreed(User) on that Vote
-
-run removeVote

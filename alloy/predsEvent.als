@@ -52,7 +52,6 @@ pred closePoll(e, e' : Event){
 
 //addUser predicate is satisfied by the addResponse predicate and the fact participantsAreReponseTrue
 
-//TODO: Why is this invalid?
 pred addResponse(e, e' : Event, r : Response){
 	e.id = e'.id
 	e.name = e'.name
@@ -60,14 +59,9 @@ pred addResponse(e, e' : Event, r : Response){
 	e.optionalMessage = e'.optionalMessage
 	e.organizer = e'.organizer
 
-	all response : e.responses |
-		response.user != r.user and response.event != r.event and response.present != r.present
-	
-	some newresponse : Response |
-		newresponse.user = r.user and
-		newresponse.event = r.event and
-		newresponse.present = r.present and
-		e'.responses = e.responses + newresponse
-}
+	e.poll.hidden = e'.poll.hidden
+	e.poll.limit = e'.poll.limit
+	e.poll.options = e'.poll.options
 
-run openPoll
+	//We tried doing a deep compare but because of the redundancies in our specification, we were not able to complete this predicate
+}
