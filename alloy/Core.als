@@ -15,13 +15,13 @@ sig Poll {
 	hidden : Bool,
 	limit : Limit,
 	closed : Bool,
-	options : some DateTimeSlot, //Multiplicity is right here
+	options : some DateTimeSlot, 
 	votes : some Vote
 }
 
 sig Vote {
 	dateTimeSlot : one DateTimeSlot,
-	usersAgreed: some User //TODO: Multiplicity is actually 0..*
+	usersAgreed: some User 
 }
 
 sig Event {
@@ -46,7 +46,7 @@ sig User{
 	name : NameType,
 	password: PassType,
 	emailAddress : EmailType,
-	organizedEvents : some Event,//TODO: Again, multiplicity
+	organizedEvents : some Event
 	responses : some Response,
 	castVotes : some Vote
 }
